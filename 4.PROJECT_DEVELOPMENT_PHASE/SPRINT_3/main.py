@@ -1,0 +1,47 @@
+importwiotp.sdk.device
+importtime
+importrandom
+myConfig={
+	"identity":{
+		"orgId":"gagtey",
+		"typeId":"GPS",
+		"deviceId":"12345"
+	},
+	"auth":{
+		"token":"12345678"
+	}
+}
+defmyCommandcallback(cmd):
+	print("messagereceivedfromIBMIOTPlatform:%s"%cmd.data['command'])
+	m=cmd.data['command']
+
+client=wiotp.sdk.device.deviceclient(config=myConfig,logHandlers=None)
+client.connect()
+
+defpub(data):
+	client.publishEvent(eventId="status",msgFormat="json",data=mydata,qos=0,
+	print("publishedatasuccessfully:%s",mydata)
+whileTrue:
+	mydata={'name':'Train1','lat':17.6387448,'lon':78.4754336)
+	pub(myData)
+	time.sleep(3)
+	#mydata={'name':'Train2','lat':17.6387448,'lon':78.4754336)
+	#pub(myData)
+	#time.sleep(3)
+	mydata={'name':'Train1','lat':17.6341908,'lon':78.4744722)
+	pub(myData)
+	time.sleep(3)
+	mydata={'name':'Train1','lat':17.6340889,'lon':78.4745052)
+	pub(myData)
+	time.sleep(3)
+	mydata={'name':'Train1','lat':17.6248626,'lon':78.4720259)
+	pub(myData)
+	time.sleep(3)
+	mydata={'name':'Train1','lat':17.6188577,'lon':78.4698726)
+	pub(myData)
+	time.sleep(3)
+	mydata={'name':'Train1','lat':17.6132382,'lon':78.4707318)
+	pub(myData)
+	time.sleep(3)
+client.commandCallback=mycommanCallbak
+client.disconnect()
